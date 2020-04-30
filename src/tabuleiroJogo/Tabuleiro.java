@@ -31,5 +31,14 @@ public class Tabuleiro
 		this.coluna = coluna;
 	}
 
-	
+	//Métodos comuns
+	public Peca pegarPecas(int linha, int coluna)
+	{
+		return pecas[linha][coluna];
+	}
+
+	public Peca pegarPecas(Posicao posicao)
+	{
+		return pecas[posicao.getLinha()][posicao.getColuna()];
+	}
 }
