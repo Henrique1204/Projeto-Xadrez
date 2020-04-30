@@ -1,6 +1,8 @@
 package xadrez;
 
+import tabuleiroJogo.Posicao;
 import tabuleiroJogo.Tabuleiro;
+import xadrez.peca.Torre;
 
 public class PartidaXadrez
 {
@@ -9,6 +11,7 @@ public class PartidaXadrez
 	//Contrutor
 	public PartidaXadrez() {
 		this.tabuleiro = new Tabuleiro(8, 8);
+		this.configurarInicio();
 	}
 
 	public PecaXadrez[][] pegarPecas()
@@ -24,5 +27,13 @@ public class PartidaXadrez
 		}
 
 		return matriz;
+	}
+
+	public void configurarInicio()
+	{
+		this.tabuleiro.moverPeca(new Torre(this.tabuleiro, Cor.BRANCO), new Posicao(0,0));
+		this.tabuleiro.moverPeca(new Torre(this.tabuleiro, Cor.BRANCO), new Posicao(0,7));
+		this.tabuleiro.moverPeca(new Torre(this.tabuleiro, Cor.PRETO), new Posicao(7,0));
+		this.tabuleiro.moverPeca(new Torre(this.tabuleiro, Cor.PRETO), new Posicao(7,7));
 	}
 }
