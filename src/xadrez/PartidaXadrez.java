@@ -1,6 +1,5 @@
 package xadrez;
 
-import tabuleiroJogo.Posicao;
 import tabuleiroJogo.Tabuleiro;
 import xadrez.peca.Torre;
 
@@ -29,11 +28,16 @@ public class PartidaXadrez
 		return matriz;
 	}
 
+	public void moverNovaPeca(char coluna, int linha, PecaXadrez peca)
+	{
+		this.tabuleiro.moverPeca(peca, new PosicaoXadrez(coluna, linha).toPosicao());
+	}
+
 	public void configurarInicio()
 	{
-		this.tabuleiro.moverPeca(new Torre(this.tabuleiro, Cor.BRANCO), new Posicao(0,0));
-		this.tabuleiro.moverPeca(new Torre(this.tabuleiro, Cor.BRANCO), new Posicao(0,7));
-		this.tabuleiro.moverPeca(new Torre(this.tabuleiro, Cor.PRETO), new Posicao(7,0));
-		this.tabuleiro.moverPeca(new Torre(this.tabuleiro, Cor.PRETO), new Posicao(7,7));
+		moverNovaPeca('a', 8, new Torre(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('h', 8, new Torre(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('a', 1, new Torre(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('h', 1, new Torre(this.tabuleiro, Cor.PRETO));
 	}
 }
