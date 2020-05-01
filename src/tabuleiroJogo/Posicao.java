@@ -40,5 +40,11 @@ public class Posicao
 		return this.getLinha() + ", " + this.getColuna();
 	}
 
-	
+	//Métodos comuns
+
+	public void setValores(int linha, int coluna)
+	{
+		this.linha = linha;
+		this.coluna = coluna;
+	}
 }
