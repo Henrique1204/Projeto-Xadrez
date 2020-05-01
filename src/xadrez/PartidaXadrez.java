@@ -3,6 +3,7 @@ package xadrez;
 import tabuleiroJogo.Peca;
 import tabuleiroJogo.Posicao;
 import tabuleiroJogo.Tabuleiro;
+import xadrez.peca.Rei;
 import xadrez.peca.Torre;
 
 public class PartidaXadrez
@@ -28,6 +29,14 @@ public class PartidaXadrez
 		}
 
 		return matriz;
+	}
+
+	public boolean[][] possiveisMovimentos(PosicaoXadrez origem)
+	{
+		Posicao posicao = origem.toPosicao();
+
+		validarOrigem(posicao);
+		return this.tabuleiro.pegarPecas(posicao).movimentosPossiveis();
 	}
 
 	public PecaXadrez executarMovimento(PosicaoXadrez origemPosicao, PosicaoXadrez destinoPosicao)
@@ -82,7 +91,7 @@ public class PartidaXadrez
 	public void configurarInicio()
 	{
 		moverNovaPeca('a', 8, new Torre(this.tabuleiro, Cor.BRANCO));
-		moverNovaPeca('h', 8, new Torre(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('h', 8, new Rei(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('a', 1, new Torre(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('h', 1, new Torre(this.tabuleiro, Cor.PRETO));
 	}
