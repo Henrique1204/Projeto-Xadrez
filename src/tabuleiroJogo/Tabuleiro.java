@@ -78,4 +78,22 @@ public class Tabuleiro
 
 		return pegarPecas(posicao) != null;
 	}
+
+	public Peca removerPeca(Posicao posicao)
+	{
+		if(!posicaoExiste(posicao))
+		{
+			throw new TabuleiroException("Posicção não encontrada no tabuleiro.");
+		}
+
+		if(pegarPecas(posicao) == null)
+		{
+			return null;
+		}
+
+		Peca aux = pegarPecas(posicao);
+		aux.posicao = null;
+		pecas[posicao.getLinha()][posicao.getColuna()] = null;
+		return aux;
+	}
 }
