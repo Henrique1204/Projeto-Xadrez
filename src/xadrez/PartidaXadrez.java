@@ -16,7 +16,7 @@ public class PartidaXadrez
 		this.configurarInicio();
 	}
 
-	public PecaXadrez[][] pegarPecas()
+	public PecaXadrez[][] getPecas()
 	{
 		PecaXadrez[][] matriz = new PecaXadrez[this.tabuleiro.getLinha()][this.tabuleiro.getColuna()];
 
@@ -76,7 +76,7 @@ public class PartidaXadrez
 
 	private void validarDestino(Posicao origem, Posicao destino)
 	{
-		if(!this.tabuleiro.pegarPecas(origem).movimentosPossiveis(destino))
+		if(!this.tabuleiro.pegarPecas(origem).movimentoPossivel(destino))
 		{
 			throw new XadrezException("A peça escolhida não pode se mover para posição de destino");
 		}
@@ -93,6 +93,6 @@ public class PartidaXadrez
 		moverNovaPeca('a', 8, new Torre(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('h', 8, new Rei(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('a', 1, new Torre(this.tabuleiro, Cor.PRETO));
-		moverNovaPeca('h', 1, new Torre(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('h', 1, new Rei(this.tabuleiro, Cor.PRETO));
 	}
 }

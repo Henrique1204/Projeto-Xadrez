@@ -21,7 +21,7 @@ public abstract class PecaXadrez extends Peca
 	}
 
 	//Métodos comuns
-	public boolean isPecaInimiga(Posicao posicao)
+	protected boolean isPecaInimiga(Posicao posicao)
 	{
 		PecaXadrez p = (PecaXadrez) this.getTabuleiro().pegarPecas(posicao);
 

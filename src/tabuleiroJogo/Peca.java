@@ -21,7 +21,8 @@ public abstract class Peca
 	//Métodos abstratos
 	public abstract boolean[][] movimentosPossiveis();
 
-	public boolean movimentosPossiveis(Posicao posicao)
+	//Métodos comuns
+	public boolean movimentoPossivel(Posicao posicao)
 	{		
 		return movimentosPossiveis()[posicao.getLinha()][posicao.getColuna()];
 	}
@@ -41,6 +42,6 @@ public abstract class Peca
 			}
 		}
 
-		return false;
+		return true;
 	}
 }

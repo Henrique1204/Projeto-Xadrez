@@ -22,7 +22,7 @@ public class Torre extends PecaXadrez
 	@Override
 	public boolean[][] movimentosPossiveis()
 	{
-		boolean[][] matriz = new boolean[this.getTabuleiro().getLinha()][this.getTabuleiro().getColuna()];
+		boolean[][] matriz = new boolean[this.getTabuleiro().getLinha()] [this.getTabuleiro().getColuna()];
 
 		Posicao p = new Posicao(0,0);
 
@@ -43,7 +43,7 @@ public class Torre extends PecaXadrez
 		while(this.getTabuleiro().posicaoExiste(p) && !this.getTabuleiro().temPeca(p))
 		{
 			matriz[p.getLinha()][p.getColuna()] = true;
-			p.setLinha(p.getColuna() - 1);
+			p.setColuna(p.getColuna() - 1);
 		}
 		if(this.getTabuleiro().posicaoExiste(p) && this.isPecaInimiga(p))
 		{

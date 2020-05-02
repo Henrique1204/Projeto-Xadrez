@@ -41,7 +41,6 @@ public class Posicao
 	}
 
 	//Métodos comuns
-
 	public void setValores(int linha, int coluna)
 	{
 		this.linha = linha;
