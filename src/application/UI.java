@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import xadrez.Cor;
+import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 import xadrez.PosicaoXadrez;
 
@@ -69,6 +70,14 @@ public class UI
 		System.out.println("    A B C D E F G H");
 	}
 
+	public static void printPartida(PartidaXadrez partida)
+	{
+		printTabuleiro(partida.getPecas());
+		System.out.println("\nTunro: " + partida.getTurno());
+		String cor = (partida.getTurno() % 2 == 0) ? "\u001B[33m" : "\u001B[37m" ;
+		System.out.println("Vez do jogador: " + cor + partida.getJogadorAtual() + ANSI_RESET);
+	}
+
 	public static void printTabuleiro(PecaXadrez[][] pecas, boolean[][] possiveisMovimentos)
 	{
 		System.out.println("  ===================");
@@ -98,11 +107,11 @@ public class UI
 		{
 			if(peca.getCor() == Cor.BRANCO)
 			{
-				System.out.print(ANSI_YELLOW + peca + " " + ANSI_RESET);
+				System.out.print(ANSI_WHITE + peca + " " + ANSI_RESET);
 			}
 			else
 			{
-				System.out.print(ANSI_WHITE + peca + " " + ANSI_RESET);
+				System.out.print(ANSI_YELLOW + peca + " " + ANSI_RESET);
 			}
 		}
 		else

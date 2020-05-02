@@ -8,12 +8,27 @@ import xadrez.peca.Torre;
 
 public class PartidaXadrez
 {
+	private int turno;
+	private Cor jogadorAtual;
 	private Tabuleiro tabuleiro;
 
 	//Contrutor
 	public PartidaXadrez() {
 		this.tabuleiro = new Tabuleiro(8, 8);
+		this.turno = 1;
+		this.jogadorAtual = Cor.BRANCO;
 		this.configurarInicio();
+	}
+
+	//Getters
+	public int getTurno()
+	{
+		return this.turno;
+	}
+
+	public Cor getJogadorAtual()
+	{
+		return this.jogadorAtual;
 	}
 
 	public PecaXadrez[][] getPecas()
@@ -48,6 +63,7 @@ public class PartidaXadrez
 		validarDestino(origem, destino);
 
 		Peca pecaCapturada = moverPeca(origem, destino);
+		avancarTurno();
 
 		return (PecaXadrez) pecaCapturada;
 	}
@@ -68,6 +84,10 @@ public class PartidaXadrez
 		{
 			throw new XadrezException("Não tem peça nessa posicção");
 		}
+		if(this.getJogadorAtual() != ( (PecaXadrez) this.tabuleiro.pegarPecas(origem) ).getCor())
+		{
+			throw new XadrezException("A peça escolhida não é sua");
+		}
 		if(!this.tabuleiro.pegarPecas(origem).isPossivelMover())
 		{
 			throw new XadrezException("Não existe movimentos possíveis para peça escolhida");
@@ -85,14 +105,19 @@ public class PartidaXadrez
 	public void moverNovaPeca(char coluna, int linha, PecaXadrez peca)
 	{
 		this.tabuleiro.moverPeca(peca, new PosicaoXadrez(coluna, linha).toPosicao());
-		
+	}
+
+	private void avancarTurno()
+	{
+		this.turno++;
+		this.jogadorAtual = this.getTurno() % 2 == 0 ? Cor.PRETO : Cor.BRANCO;
 	}
 
 	public void configurarInicio()
 	{
-		moverNovaPeca('a', 8, new Torre(this.tabuleiro, Cor.BRANCO));
-		moverNovaPeca('h', 8, new Rei(this.tabuleiro, Cor.BRANCO));
-		moverNovaPeca('a', 1, new Torre(this.tabuleiro, Cor.PRETO));
-		moverNovaPeca('h', 1, new Rei(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('a', 1, new Torre(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('h', 1, new Rei(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('a', 8, new Torre(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('h', 8, new Rei(this.tabuleiro, Cor.PRETO));
 	}
 }
