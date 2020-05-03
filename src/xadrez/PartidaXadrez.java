@@ -1,5 +1,8 @@
 package xadrez;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import tabuleiroJogo.Peca;
 import tabuleiroJogo.Posicao;
 import tabuleiroJogo.Tabuleiro;
@@ -11,6 +14,9 @@ public class PartidaXadrez
 	private int turno;
 	private Cor jogadorAtual;
 	private Tabuleiro tabuleiro;
+
+	private List<Peca> pecasTabuleiro = new ArrayList<>();
+	private List<Peca> pecasCapturadas = new ArrayList<>();
 
 	//Contrutor
 	public PartidaXadrez() {
@@ -72,8 +78,13 @@ public class PartidaXadrez
 	{
 		Peca p = this.tabuleiro.removerPeca(origem);
 		Peca capturada = this.tabuleiro.removerPeca(destino);
-
 		this.tabuleiro.moverPeca(p, destino);
+
+		if(capturada != null)
+		{
+			this.pecasTabuleiro.remove(capturada);
+			this.pecasCapturadas.add(capturada);
+		}
 
 		return capturada;
 	}
@@ -82,15 +93,15 @@ public class PartidaXadrez
 	{
 		if(!this.tabuleiro.temPeca(origem))
 		{
-			throw new XadrezException("Não tem peça nessa posicção");
+			throw new XadrezException("Nao tem peca nessa posicao");
 		}
 		if(this.getJogadorAtual() != ( (PecaXadrez) this.tabuleiro.pegarPecas(origem) ).getCor())
 		{
-			throw new XadrezException("A peça escolhida não é sua");
+			throw new XadrezException("A peca escolhida não é sua");
 		}
 		if(!this.tabuleiro.pegarPecas(origem).isPossivelMover())
 		{
-			throw new XadrezException("Não existe movimentos possíveis para peça escolhida");
+			throw new XadrezException("Nao existe movimentos possiveis para peca escolhida");
 		}
 	}
 
@@ -98,13 +109,14 @@ public class PartidaXadrez
 	{
 		if(!this.tabuleiro.pegarPecas(origem).movimentoPossivel(destino))
 		{
-			throw new XadrezException("A peça escolhida não pode se mover para posição de destino");
+			throw new XadrezException("A peca escolhida nao pode se mover para posicao de destino");
 		}
 	}
 
 	public void moverNovaPeca(char coluna, int linha, PecaXadrez peca)
 	{
 		this.tabuleiro.moverPeca(peca, new PosicaoXadrez(coluna, linha).toPosicao());
+		this.pecasTabuleiro.add(peca);
 	}
 
 	private void avancarTurno()
