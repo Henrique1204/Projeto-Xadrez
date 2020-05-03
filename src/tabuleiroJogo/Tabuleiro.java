@@ -10,7 +10,7 @@ public class Tabuleiro
 	{
 		if(linha < 1 || coluna < 1)
 		{
-			throw new TabuleiroException("Valor de [linha] e [coluna] devem ser maiores do que zero.");
+			throw new TabuleiroException("\n  Valor de [linha] e [coluna] devem ser maiores do que zero.");
 		}
 
 		this.linha = linha;
@@ -32,7 +32,7 @@ public class Tabuleiro
 	{
 		if(!posicaoExiste(linha, coluna))
 		{
-			throw new TabuleiroException("Posicao nao encontrada no tabuleiro.");
+			throw new TabuleiroException("\n  Posicao nao encontrada no tabuleiro.");
 		}
 
 		return pecas[linha][coluna];
@@ -42,7 +42,7 @@ public class Tabuleiro
 	{
 		if(!posicaoExiste(posicao))
 		{
-			throw new TabuleiroException("Peca nao encontrada no tabuleiro.");
+			throw new TabuleiroException("\n  Peca nao encontrada no tabuleiro.");
 		}
 
 		return pecas[posicao.getLinha()][posicao.getColuna()];
@@ -52,7 +52,7 @@ public class Tabuleiro
 	{
 		if(temPeca(posicao))
 		{
-			throw new TabuleiroException("Ja existe uma peca nessa posicao.");
+			throw new TabuleiroException("\n  Ja existe uma peca nessa posicao.");
 		}
 
 		pecas[posicao.getLinha()][posicao.getColuna()] = peca;
@@ -73,7 +73,7 @@ public class Tabuleiro
 	{
 		if(!posicaoExiste(posicao))
 		{
-			throw new TabuleiroException("Posicao nao encontrada no tabuleiro.");
+			throw new TabuleiroException("\n  Posicao nao encontrada no tabuleiro.");
 		}
 
 		return pegarPecas(posicao) != null;
@@ -83,7 +83,7 @@ public class Tabuleiro
 	{
 		if(!posicaoExiste(posicao))
 		{
-			throw new TabuleiroException("Posicao nao encontrada no tabuleiro.");
+			throw new TabuleiroException("\n  Posicao nao encontrada no tabuleiro.");
 		}
 
 		if(pegarPecas(posicao) == null)

@@ -52,7 +52,7 @@ public class UI
 		}
 		catch (RuntimeException e)
 		{
-			throw new InputMismatchException("Erro lendo posicao de xadrez, valores validos sao a1 ate h8!");
+			throw new InputMismatchException("\n  Erro lendo posicao de xadrez, valores validos sao a1 ate h8!");
 		}
 	}
 
@@ -82,6 +82,11 @@ public class UI
 		System.out.println("\nTunro: " + partida.getTurno());
 		String cor = (partida.getTurno() % 2 == 0) ? "\u001B[33m" : "\u001B[37m" ;
 		System.out.println("Vez do jogador: " + cor + partida.getJogadorAtual() + ANSI_RESET);
+
+		if(partida.getCheck())
+		{
+			System.out.println("\nCheck!");
+		}
 	}
 
 	public static void printTabuleiro(PecaXadrez[][] pecas, boolean[][] possiveisMovimentos)
