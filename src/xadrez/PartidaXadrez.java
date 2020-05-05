@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import tabuleiroJogo.Peca;
 import tabuleiroJogo.Posicao;
 import tabuleiroJogo.Tabuleiro;
+import xadrez.peca.Peao;
 import xadrez.peca.Rei;
 import xadrez.peca.Torre;
 
@@ -142,7 +143,7 @@ public class PartidaXadrez
 		}
 		if(this.getJogadorAtual() != ( (PecaXadrez) this.tabuleiro.pegarPecas(origem) ).getCor())
 		{
-			throw new XadrezException("\n  A peca escolhida não é sua");
+			throw new XadrezException("\n  A peca escolhida nao e sua");
 		}
 		if(!this.tabuleiro.pegarPecas(origem).isPossivelMover())
 		{
@@ -247,11 +248,29 @@ public class PartidaXadrez
 
 	public void configurarInicio()
 	{
-		moverNovaPeca('h', 7, new Torre(this.tabuleiro, Cor.BRANCO));
-		moverNovaPeca('d', 1, new Torre(this.tabuleiro, Cor.BRANCO));
-		moverNovaPeca('e', 1, new Rei(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('a', 1, new Torre(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('d', 1, new Rei(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('h', 1, new Torre(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('a', 2, new Peao(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('b', 2, new Peao(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('c', 2, new Peao(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('d', 2, new Peao(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('e', 2, new Peao(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('f', 2, new Peao(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('g', 2, new Peao(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('h', 2, new Peao(this.tabuleiro, Cor.BRANCO));
 
-		moverNovaPeca('b', 8, new Torre(this.tabuleiro, Cor.PRETO));
-		moverNovaPeca('a', 8, new Rei(this.tabuleiro, Cor.PRETO));
+
+		moverNovaPeca('a', 8, new Torre(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('d', 8, new Rei(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('h', 8, new Torre(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('a', 7, new Peao(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('b', 7, new Peao(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('c', 7, new Peao(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('d', 7, new Peao(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('e', 7, new Peao(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('f', 7, new Peao(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('g', 7, new Peao(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('h', 7, new Peao(this.tabuleiro, Cor.PRETO));
 	}
 }

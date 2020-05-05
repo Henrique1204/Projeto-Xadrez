@@ -14,6 +14,7 @@ public abstract class PecaXadrez extends Peca
 	{
 		super(tabuleiro);
 		this.cor = cor;
+		this.contadorMovimentos = 0;
 	}
 
 	//Getters
