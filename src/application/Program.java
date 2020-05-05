@@ -40,6 +40,14 @@ public class Program
 				{
 					capturas.add(pecaCapturada);
 				}
+
+				if(partida.getPromocao() != null)
+				{
+					System.out.print("\nEscolha para qual peca voce quer promover (T/C/B/D): ");
+					String tipo = sc.nextLine();
+	
+					partida.promoverPeca(tipo);
+				}
 			}
 			catch (XadrezException e)
 			{
