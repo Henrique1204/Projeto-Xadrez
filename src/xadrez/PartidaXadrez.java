@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import tabuleiroJogo.Peca;
 import tabuleiroJogo.Posicao;
 import tabuleiroJogo.Tabuleiro;
+import xadrez.peca.Bispo;
 import xadrez.peca.Peao;
 import xadrez.peca.Rei;
 import xadrez.peca.Torre;
@@ -248,9 +249,14 @@ public class PartidaXadrez
 
 	public void configurarInicio()
 	{
+		//Primeira linha Branco
 		moverNovaPeca('a', 1, new Torre(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('c', 1, new Bispo(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('d', 1, new Rei(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('f', 1, new Bispo(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('h', 1, new Torre(this.tabuleiro, Cor.BRANCO));
+
+		//Segunda linha Branco
 		moverNovaPeca('a', 2, new Peao(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('b', 2, new Peao(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('c', 2, new Peao(this.tabuleiro, Cor.BRANCO));
@@ -260,10 +266,14 @@ public class PartidaXadrez
 		moverNovaPeca('g', 2, new Peao(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('h', 2, new Peao(this.tabuleiro, Cor.BRANCO));
 
-
+		//Primeira linha Preto
 		moverNovaPeca('a', 8, new Torre(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('c', 8, new Bispo(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('d', 8, new Rei(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('f', 8, new Bispo(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('h', 8, new Torre(this.tabuleiro, Cor.PRETO));
+
+		//Segunda linha Preto
 		moverNovaPeca('a', 7, new Peao(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('b', 7, new Peao(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('c', 7, new Peao(this.tabuleiro, Cor.PRETO));
