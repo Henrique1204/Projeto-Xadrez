@@ -83,9 +83,18 @@ public class UI
 		String cor = (partida.getTurno() % 2 == 0) ? "\u001B[33m" : "\u001B[37m" ;
 		System.out.println("Vez do jogador: " + cor + partida.getJogadorAtual() + ANSI_RESET);
 
-		if(partida.getCheck())
+		if(!partida.getCheckMate())
 		{
-			System.out.println("\nCheck!");
+			if(partida.getCheck())
+			{
+				System.out.println("\nCheck!");
+			}
+		}
+		else
+		{
+			System.out.println("\nCEHCK-MATE!");
+			cor = (partida.getTurno() % 2 == 0) ? "\u001B[33m" : "\u001B[37m" ;
+			System.out.println("Vencedor: " + cor + partida.getJogadorAtual());
 		}
 	}
 
