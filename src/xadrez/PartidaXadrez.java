@@ -8,6 +8,7 @@ import tabuleiroJogo.Peca;
 import tabuleiroJogo.Posicao;
 import tabuleiroJogo.Tabuleiro;
 import xadrez.peca.Bispo;
+import xadrez.peca.Cavalo;
 import xadrez.peca.Peao;
 import xadrez.peca.Rei;
 import xadrez.peca.Torre;
@@ -251,9 +252,11 @@ public class PartidaXadrez
 	{
 		//Primeira linha Branco
 		moverNovaPeca('a', 1, new Torre(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('b', 1, new Cavalo(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('c', 1, new Bispo(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('d', 1, new Rei(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('f', 1, new Bispo(this.tabuleiro, Cor.BRANCO));
+		moverNovaPeca('g', 1, new Cavalo(this.tabuleiro, Cor.BRANCO));
 		moverNovaPeca('h', 1, new Torre(this.tabuleiro, Cor.BRANCO));
 
 		//Segunda linha Branco
@@ -268,9 +271,11 @@ public class PartidaXadrez
 
 		//Primeira linha Preto
 		moverNovaPeca('a', 8, new Torre(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('b', 8, new Cavalo(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('c', 8, new Bispo(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('d', 8, new Rei(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('f', 8, new Bispo(this.tabuleiro, Cor.PRETO));
+		moverNovaPeca('g', 8, new Cavalo(this.tabuleiro, Cor.PRETO));
 		moverNovaPeca('h', 8, new Torre(this.tabuleiro, Cor.PRETO));
 
 		//Segunda linha Preto

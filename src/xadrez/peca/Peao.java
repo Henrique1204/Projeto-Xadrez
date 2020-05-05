@@ -49,7 +49,7 @@ public class Peao extends PecaXadrez
 		}
 
 		p.setValores(posicao.getLinha() + sentido , posicao.getColuna() + 1);
-		if(getTabuleiro().posicaoExiste(p) && isPecaInimiga(p))
+		if(getTabuleiro().posicaoExiste(p) && this.isPecaInimiga(p))
 		{
 			matriz[p.getLinha()][p.getColuna()] = true;
 		}
