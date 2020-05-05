@@ -7,6 +7,7 @@ import tabuleiroJogo.Tabuleiro;
 public abstract class PecaXadrez extends Peca
 {
 	private Cor cor;
+	private int contadorMovimentos;
 
 	//Contrutor
 	public PecaXadrez(Tabuleiro tabuleiro, Cor cor)
@@ -20,6 +21,11 @@ public abstract class PecaXadrez extends Peca
 		return this.cor;
 	}
 
+	public int getContadorMovimentos()
+	{
+		return this.contadorMovimentos;
+	}
+
 	//Métodos comuns
 	protected boolean isPecaInimiga(Posicao posicao)
 	{
@@ -31,5 +37,15 @@ public abstract class PecaXadrez extends Peca
 	public PosicaoXadrez getPosicaoXadrez()
 	{
 		return PosicaoXadrez.fromPosicao(posicao);
+	}
+
+	public void incrementarContadorMovimento()
+	{
+		this.contadorMovimentos++;
+	}
+
+	public void decrementarContadorMovimento()
+	{
+		this.contadorMovimentos--;
 	}
 }

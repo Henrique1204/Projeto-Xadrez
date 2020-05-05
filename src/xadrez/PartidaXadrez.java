@@ -106,7 +106,8 @@ public class PartidaXadrez
 
 	private Peca moverPeca(Posicao origem, Posicao destino)
 	{
-		Peca p = this.tabuleiro.removerPeca(origem);
+		PecaXadrez p = (PecaXadrez) this.tabuleiro.removerPeca(origem);
+		p.incrementarContadorMovimento();
 		Peca capturada = this.tabuleiro.removerPeca(destino);
 		this.tabuleiro.moverPeca(p, destino);
 
@@ -121,7 +122,8 @@ public class PartidaXadrez
 
 	private void voltarMovimento(Posicao origem, Posicao destino, Peca capturada)
 	{
-		Peca p = this.tabuleiro.removerPeca(destino);
+		PecaXadrez p = (PecaXadrez) this.tabuleiro.removerPeca(destino);
+		p.decrementarContadorMovimento();
 		this.tabuleiro.moverPeca(p, origem);
 
 		if(capturada != null)
