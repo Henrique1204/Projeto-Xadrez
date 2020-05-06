@@ -149,7 +149,7 @@ public class PartidaXadrez
 		}
 		if(!tipo.toLowerCase().equals("t") && !tipo.toLowerCase().equals("b") && !tipo.toLowerCase().equals("d") && !tipo.toLowerCase().equals("c"))
 		{
-			throw new InvalidParameterException("Tipo de promocao invalido.");
+			return this.promocao;
 		}
 
 		Posicao pos = promocao.getPosicaoXadrez().toPosicao();

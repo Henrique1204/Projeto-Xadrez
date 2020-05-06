@@ -43,9 +43,13 @@ public class Program
 
 				if(partida.getPromocao() != null)
 				{
-					System.out.print("\nEscolha para qual peca voce quer promover (T/C/B/D): ");
-					String tipo = sc.nextLine();
+					String tipo;
 	
+					do{
+						System.out.print("\nEscolha para qual peca voce quer promover (T/C/B/D): ");
+						tipo = sc.nextLine();
+					}while(!tipo.toLowerCase().equals("t") && !tipo.toLowerCase().equals("b") && !tipo.toLowerCase().equals("d") && !tipo.toLowerCase().equals("c"));
+
 					partida.promoverPeca(tipo);
 				}
 			}
