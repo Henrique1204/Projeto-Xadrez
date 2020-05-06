@@ -21,13 +21,13 @@ public abstract class Peca
 	//Métodos abstratos
 	public abstract boolean[][] movimentosPossiveis();
 
-	//Métodos comuns
-	public boolean movimentoPossivel(Posicao posicao)
+	//Métodos implementados
+	public final boolean movimentoPossivel(Posicao posicao)
 	{		
 		return movimentosPossiveis()[posicao.getLinha()][posicao.getColuna()];
 	}
 
-	public boolean isPossivelMover()
+	public final boolean isPossivelMover()
 	{
 		boolean[][] matriz = movimentosPossiveis();
 

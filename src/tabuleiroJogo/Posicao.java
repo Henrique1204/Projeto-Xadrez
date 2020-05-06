@@ -40,7 +40,7 @@ public class Posicao
 		return this.getLinha() + ", " + this.getColuna();
 	}
 
-	//Métodos comuns
+	//Métodos implementados
 	public void setValores(int linha, int coluna)
 	{
 		this.linha = linha;
